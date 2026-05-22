@@ -16,4 +16,4 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material
-      - run: mkdocs gh-pages --force       # <-- CORRETTO (con il trattino)
+      - run: python -m mkdocs gh-pages --force  
