@@ -13,16 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
-      - name: Install Cache (Velocizza le build successive)
-        run: echo "cache_id=$(date +%Y%m%d)" >> $GITHUB_ENV
+      - name: Install MkDocs and Material Theme
+        run: |
+          pip install mkdocs mkdocs-material
 
-      # Questa Action ufficiale si occupa di installare TUTTO e lanciare il deploy in modo sicuro
-      - name: Deploy MkDocs Material
-        uses: squidfunk/mkdocs-material-action@v9.5.18 # Versione stabile ufficiale
-        with:
-          config-file: mkdocs.yml
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdocs gh-pages --force
