@@ -18,10 +18,14 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Install MkDocs and Material Theme
-        run: |
-          pip install mkdocs mkdocs-material
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: Build Wiki HTML
+        run: mkdocs build
 
       - name: Deploy to GitHub Pages
-        run: |
-          mkdocs gh-pages --force
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
