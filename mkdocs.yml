@@ -1,6 +1,9 @@
 site_name: Mattedev Wiki
 site_url: https://wiki.mattedev.com
 
+nav:
+  - Home: index.md
+
 theme:
   name: material
   language: it
