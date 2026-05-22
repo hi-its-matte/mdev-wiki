@@ -33,3 +33,6 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences       # Supporto avanzato per i blocchi di codice
+
+extra_css:
+  - /css/extra.css
