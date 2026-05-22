@@ -12,8 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: pip install mkdocs-material
-      - run: python -m mkdocs gh-pages --force  
+
+      - name: Install Cache (Velocizza le build successive)
+        run: echo "cache_id=$(date +%Y%m%d)" >> $GITHUB_ENV
+
+      # Questa Action ufficiale si occupa di installare TUTTO e lanciare il deploy in modo sicuro
+      - name: Deploy MkDocs Material
+        uses: squidfunk/mkdocs-material-action@v9.5.18 # Versione stabile ufficiale
+        with:
+          config-file: mkdocs.yml
