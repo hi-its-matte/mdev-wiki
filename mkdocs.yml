@@ -1,0 +1,32 @@
+site_name: Mattedev Wiki
+site_url: https://wiki.mattedev.com
+
+theme:
+  name: material
+  language: it
+  palette:
+    # Tema scuro/chiaro automatico in base al sistema operativo
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Passa al tema scuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Passa al tema chiaro
+  features:
+    - navigation.tabs          # Menu a schede in alto
+    - navigation.sections      # Sezioni collassabili a sinistra
+    - search.suggest           # Suggerimenti di ricerca mentre digiti
+    - search.highlight         # Evidenzia il testo cercato
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences       # Supporto avanzato per i blocchi di codice
